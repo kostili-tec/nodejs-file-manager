@@ -1,14 +1,15 @@
 import * as readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
-import commands from './data/commands.js';
+import { freezingCommands as commands } from './data/commands.js';
 
 import { getsUsername } from './utils/getUsername.js';
 import { getSystemPath } from './utils/systemPath.js';
-import { upperPath } from './navigation/upperPath.js';
 import { changePath } from './navigation/changePath.js';
+import { findObjectByCmd } from './data/finder.js';
 
 let currentPath = getSystemPath();
+process.chdir(currentPath);
 const username = getsUsername();
 console.log(`Welcome to the File Manager, ${username}!\n`);
 
@@ -17,6 +18,7 @@ rl.setPrompt(`You are currently in ${currentPath}>\n`);
 rl.prompt();
 
 const processCommand = (command) => {
+  console.log(findObjectByCmd(commands, command));
   switch (command) {
     case 'hello':
       console.log('Hello, World!');
@@ -25,8 +27,8 @@ const processCommand = (command) => {
       console.log(`\nThank you for using File Manager, ${username}, goodbye!\n`);
       rl.close();
       break;
-    case commands.navigation.up: {
-      const newPath = upperPath(currentPath);
+    case commands.navigation.up.cmd: {
+      const newPath = commands.navigation.up.callback(currentPath);
       currentPath = newPath;
       changePath(rl, newPath);
       break;
