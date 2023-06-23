@@ -1,11 +1,18 @@
-const args = process.argv.slice(2);
+import { getsUsername } from './utils/getUsername.js';
 
-const parsedArgs = {};
-args.forEach((arg) => {
-  const [key, value] = arg.split('=');
-  parsedArgs[key.replace('--', '')] = value;
+const { stdout, stdin } = process;
+const username = getsUsername();
+
+console.log(`Welcome to the File Manager, ${username}!\n`);
+
+stdin.on('data', (data) => {
+  if (data.toString().trim() === '.exit') {
+    stdout.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
+    process.exit();
+  }
 });
 
-const username = parsedArgs.username || 'Guest';
-
-console.log(`Welcome to the File Manager, ${username}!`);
+process.on('SIGINT', () => {
+  stdout.write(`Thank you for using File Manager, ${username}, goodbye!\n`);
+  process.exit();
+});
