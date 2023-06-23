@@ -1,31 +1,86 @@
+import { upperPath } from '../navigation/upperPath.js';
+
 const commands = {
   navigation: {
-    up: 'up',
-    cd: 'cd',
-    list: 'ls',
+    up: {
+      cmd: 'up',
+      callback: upperPath,
+    },
+    cd: {
+      cmd: 'cd',
+      callback: () => null,
+    },
+    list: {
+      cmd: 'ls',
+      callback: () => null,
+    },
   },
   basic: {
-    read: 'cat path_to_file',
-    create: 'add new_file_name',
-    rename: 'rn path_to_file new_filename',
-    copy: 'cp path_to_file path_to_new_directory',
-    move: 'mv path_to_file path_to_new_directory',
-    delete: 'rm path_to_file',
+    read: {
+      cmd: 'cat path_to_file',
+      callback: () => null,
+    },
+    create: {
+      cmd: 'add new_file_name',
+      callback: () => null,
+    },
+    rename: {
+      cmd: 'rn path_to_file new_filename',
+      callback: () => null,
+    },
+    copy: {
+      cmd: 'cp path_to_file path_to_new_directory',
+      callback: () => null,
+    },
+    move: {
+      cmd: 'mv path_to_file path_to_new_directory',
+      callback: () => null,
+    },
+    delete: {
+      cmd: 'rm path_to_file',
+      callback: () => null,
+    },
   },
   operating: {
-    getEOL: 'os --EOL',
-    getCPU: 'os --cpus',
-    getHomeDir: 'os --homedir',
-    getCurrentUser: 'os --username',
-    getCPUArchitecture: 'os --architecture',
+    getEOL: {
+      cmd: 'os --EOL',
+      callback: () => null,
+    },
+    getCPU: {
+      cmd: 'os --cpus',
+      callback: () => null,
+    },
+    getHomeDir: {
+      cmd: 'os --homedir',
+      callback: () => null,
+    },
+    getCurrentUser: {
+      cmd: 'os --username',
+      callback: () => null,
+    },
+    getCPUArchitecture: {
+      cmd: 'os --architecture',
+      callback: () => null,
+    },
   },
   hash: {
-    calculate: 'hash path_to_file',
+    calculate: {
+      cmd: 'hash path_to_file',
+      callback: () => null,
+    },
   },
   compress: {
-    compressFile: 'compress path_to_file path_to_destination',
-    decompressFile: 'decompress path_to_file path_to_destination',
+    compressFile: {
+      cmd: 'compress path_to_file path_to_destination',
+      callback: () => null,
+    },
+    decompressFile: {
+      cmd: 'decompress path_to_file path_to_destination',
+      callback: () => null,
+    },
   },
 };
 
-export default commands;
+export const freezingCommands = Object.freeze(commands);
+
+// export default freezeCommands;
