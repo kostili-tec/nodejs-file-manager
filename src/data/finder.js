@@ -14,4 +14,4 @@ export const findObjectByCmd = (obj, searchValue) => {
   }
 
   return null;
-}
+};
