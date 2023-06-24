@@ -2,6 +2,7 @@ import { upperPath } from '../navigation/upperPath.js';
 import { changeDir } from '../navigation/changeDir.js';
 import { listDir } from '../navigation/listDir.js';
 import { readFile } from '../basic/readFile.js';
+import { createFile } from '../basic/createFile.js';
 
 const commands = {
   navigation: {
@@ -24,8 +25,8 @@ const commands = {
       callback: readFile,
     },
     create: {
-      cmd: 'add new_file_name',
-      callback: () => null,
+      cmd: 'add',
+      callback: createFile,
     },
     rename: {
       cmd: 'rn path_to_file new_filename',

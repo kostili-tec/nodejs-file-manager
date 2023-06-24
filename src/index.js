@@ -56,6 +56,10 @@ const processCommand = async (command) => {
       await commands.basic.read.callback(firstArg);
       break;
     }
+    case commands.basic.create.cmd: {
+      await commands.basic.create.callback(firstArg);
+      break;
+    }
     default:
       console.log('Invalid input');
       break;
