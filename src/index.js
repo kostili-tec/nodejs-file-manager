@@ -36,6 +36,7 @@ const processCommand = async (command) => {
       console.log(`\nThank you for using File Manager, ${username}, goodbye!\n`);
       rl.close();
       break;
+    // navigation
     case commands.navigation.up.cmd: {
       const newPath = commands.navigation.up.callback(currentPath);
       currentPath = newPath;
@@ -44,6 +45,10 @@ const processCommand = async (command) => {
     }
     case commands.navigation.cd.cmd: {
       await commands.navigation.cd.callback(firstArg);
+      break;
+    }
+    case commands.navigation.list.cmd: {
+      await commands.navigation.list.callback();
       break;
     }
     default:

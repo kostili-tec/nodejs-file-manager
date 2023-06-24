@@ -1,5 +1,6 @@
 import { upperPath } from '../navigation/upperPath.js';
 import { changeDir } from '../navigation/changeDir.js';
+import { listDir } from '../navigation/listDir.js';
 
 const commands = {
   navigation: {
@@ -13,7 +14,7 @@ const commands = {
     },
     list: {
       cmd: 'ls',
-      callback: () => null,
+      callback: listDir,
     },
   },
   basic: {
