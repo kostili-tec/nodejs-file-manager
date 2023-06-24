@@ -72,6 +72,10 @@ const processCommand = async (command) => {
       await commands.basic.move.callback(firstArg, secondArg);
       break;
     }
+    case commands.basic.delete.cmd: {
+      await commands.basic.delete.callback(firstArg);
+      break;
+    }
     default:
       console.log('Invalid input');
       break;
