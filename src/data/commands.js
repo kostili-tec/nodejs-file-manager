@@ -3,6 +3,7 @@ import { changeDir } from '../navigation/changeDir.js';
 import { listDir } from '../navigation/listDir.js';
 import { readFile } from '../basic/readFile.js';
 import { createFile } from '../basic/createFile.js';
+import { renameFile } from '../basic/renameFile.js';
 
 const commands = {
   navigation: {
@@ -29,8 +30,8 @@ const commands = {
       callback: createFile,
     },
     rename: {
-      cmd: 'rn path_to_file new_filename',
-      callback: () => null,
+      cmd: 'rn',
+      callback: renameFile,
     },
     copy: {
       cmd: 'cp path_to_file path_to_new_directory',

@@ -19,7 +19,7 @@ rl.prompt();
 
 const processCommand = async (command) => {
   const commandArray = command.split(' ');
-  const [operation, firstArg] = commandArray;
+  const [operation, firstArg, secondArg] = commandArray;
 
   // console.log('commandArray ', commandArray);
   // console.log('operation', operation);
@@ -58,6 +58,10 @@ const processCommand = async (command) => {
     }
     case commands.basic.create.cmd: {
       await commands.basic.create.callback(firstArg);
+      break;
+    }
+    case commands.basic.rename.cmd: {
+      await commands.basic.rename.callback(firstArg, secondArg);
       break;
     }
     default:
