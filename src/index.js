@@ -14,8 +14,6 @@ const username = getsUsername();
 console.log(`Welcome to the File Manager, ${username}!\n`);
 
 const rl = readline.createInterface({ input, output });
-/* let promptMessage = `You are currently in `;
-let promptDirectory = `${currentPath}>`; */
 rl.setPrompt(`You are currently in ${currentPath}>\n`);
 rl.prompt();
 
@@ -23,10 +21,10 @@ const processCommand = async (command) => {
   const commandArray = command.split(' ');
   const [operation, firstArg] = commandArray;
 
-  console.log('commandArray ', commandArray);
-  console.log('operation', operation);
+  // console.log('commandArray ', commandArray);
+  // console.log('operation', operation);
 
-  const commandInfo = findObjectByCmd(commands, operation);
+  // const commandInfo = findObjectByCmd(commands, operation);
 
   switch (operation) {
     case 'hello':
@@ -36,6 +34,7 @@ const processCommand = async (command) => {
       console.log(`\nThank you for using File Manager, ${username}, goodbye!\n`);
       rl.close();
       break;
+
     // navigation
     case commands.navigation.up.cmd: {
       const newPath = commands.navigation.up.callback(currentPath);
@@ -51,6 +50,12 @@ const processCommand = async (command) => {
       await commands.navigation.list.callback();
       break;
     }
+
+    // basic
+    case commands.basic.read.cmd: {
+      await commands.basic.read.callback(firstArg);
+      break;
+    }
     default:
       console.log('Invalid input');
       break;
@@ -61,7 +66,6 @@ rl.on('line', async (input) => {
   const command = input.trim();
   await processCommand(command);
   currentPath = process.cwd();
-  console.log('currentPath Line', currentPath);
   rl.setPrompt(`You are currently in ${currentPath}>\n`);
   rl.prompt();
 });

@@ -1,6 +1,7 @@
 import { upperPath } from '../navigation/upperPath.js';
 import { changeDir } from '../navigation/changeDir.js';
 import { listDir } from '../navigation/listDir.js';
+import { readFile } from '../basic/readFile.js';
 
 const commands = {
   navigation: {
@@ -19,8 +20,8 @@ const commands = {
   },
   basic: {
     read: {
-      cmd: 'cat path_to_file',
-      callback: () => null,
+      cmd: 'cat',
+      callback: readFile,
     },
     create: {
       cmd: 'add new_file_name',
