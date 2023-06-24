@@ -5,6 +5,7 @@ import { readFile } from '../basic/readFile.js';
 import { createFile } from '../basic/createFile.js';
 import { renameFile } from '../basic/renameFile.js';
 import { copyFile } from '../basic/copyFile.js';
+import { moveFile } from '../basic/moveFile.js';
 
 const commands = {
   navigation: {
@@ -39,8 +40,8 @@ const commands = {
       callback: copyFile,
     },
     move: {
-      cmd: 'mv path_to_file path_to_new_directory',
-      callback: () => null,
+      cmd: 'mv',
+      callback: moveFile,
     },
     delete: {
       cmd: 'rm path_to_file',

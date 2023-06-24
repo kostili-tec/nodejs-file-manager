@@ -68,6 +68,10 @@ const processCommand = async (command) => {
       await commands.basic.copy.callback(firstArg, secondArg);
       break;
     }
+    case commands.basic.move.cmd: {
+      await commands.basic.move.callback(firstArg, secondArg);
+      break;
+    }
     default:
       console.log('Invalid input');
       break;
