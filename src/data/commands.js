@@ -9,6 +9,7 @@ import { copyFile } from '../basic/copyFile.js';
 import { moveFile } from '../basic/moveFile.js';
 import { deleteFile } from '../basic/deleteFile.js';
 import { getCPUs } from '../system/getCpus.js';
+import { calculateHash } from '../hash/calculateHash.js';
 
 const commands = {
   navigation: {
@@ -75,8 +76,8 @@ const commands = {
   },
   hash: {
     calculate: {
-      cmd: 'hash path_to_file',
-      callback: () => null,
+      cmd: 'hash',
+      callback: calculateHash,
     },
   },
   compress: {

@@ -82,6 +82,11 @@ const processCommand = async (command) => {
       mainSystem(firstArg);
       break;
 
+    case commands.hash.calculate.cmd: {
+      await commands.hash.calculate.callback(firstArg);
+      break;
+    }
+
     default:
       console.log('Invalid input');
       break;
