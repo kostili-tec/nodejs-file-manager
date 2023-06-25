@@ -10,6 +10,8 @@ import { moveFile } from '../basic/moveFile.js';
 import { deleteFile } from '../basic/deleteFile.js';
 import { getCPUs } from '../system/getCpus.js';
 import { calculateHash } from '../hash/calculateHash.js';
+import { compressFile } from '../compressor/compressFile.js';
+import { decompressFile } from '../compressor/decompressFile.js';
 
 const commands = {
   navigation: {
@@ -82,12 +84,12 @@ const commands = {
   },
   compress: {
     compressFile: {
-      cmd: 'compress path_to_file path_to_destination',
-      callback: () => null,
+      cmd: 'compress',
+      callback: compressFile,
     },
     decompressFile: {
-      cmd: 'decompress path_to_file path_to_destination',
-      callback: () => null,
+      cmd: 'decompress',
+      callback: decompressFile,
     },
   },
 };

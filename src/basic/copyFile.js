@@ -30,6 +30,8 @@ export const copyFile = async (pathToFile, destPath) => {
       writableStream?.close();
       writeFileHandle?.close();
     }
+  } else {
+    console.log('Invalid input. Incorrect paths');
   }
 };
 

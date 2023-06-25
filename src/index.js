@@ -81,12 +81,20 @@ const processCommand = async (command) => {
     case 'os':
       mainSystem(firstArg);
       break;
-
+    // hash
     case commands.hash.calculate.cmd: {
       await commands.hash.calculate.callback(firstArg);
       break;
     }
-
+    // compress
+    case commands.compress.compressFile.cmd: {
+      await commands.compress.compressFile.callback(firstArg, secondArg);
+      break;
+    }
+    case commands.compress.decompressFile.cmd: {
+      await commands.compress.decompressFile.callback(firstArg, secondArg);
+      break;
+    }
     default:
       console.log('Invalid input');
       break;
