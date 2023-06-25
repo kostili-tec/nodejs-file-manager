@@ -6,6 +6,7 @@ import { freezingCommands as commands } from './data/commands.js';
 import { getsUsername } from './utils/getUsername.js';
 import { getSystemPath } from './utils/systemPath.js';
 import { changePath } from './navigation/changePath.js';
+import { mainSystem } from './system/mainSystem.js';
 import { findObjectByCmd } from './data/finder.js';
 
 let currentPath = getSystemPath();
@@ -76,6 +77,11 @@ const processCommand = async (command) => {
       await commands.basic.delete.callback(firstArg);
       break;
     }
+    // operating
+    case 'os':
+      mainSystem(firstArg);
+      break;
+
     default:
       console.log('Invalid input');
       break;

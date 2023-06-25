@@ -1,3 +1,4 @@
+import os from 'os';
 import { upperPath } from '../navigation/upperPath.js';
 import { changeDir } from '../navigation/changeDir.js';
 import { listDir } from '../navigation/listDir.js';
@@ -7,6 +8,7 @@ import { renameFile } from '../basic/renameFile.js';
 import { copyFile } from '../basic/copyFile.js';
 import { moveFile } from '../basic/moveFile.js';
 import { deleteFile } from '../basic/deleteFile.js';
+import { getCPUs } from '../system/getCpus.js';
 
 const commands = {
   navigation: {
@@ -51,24 +53,24 @@ const commands = {
   },
   operating: {
     getEOL: {
-      cmd: 'os --EOL',
-      callback: () => null,
+      cmd: '--EOL',
+      callback: () => console.log(JSON.stringify(os.EOL)),
     },
     getCPU: {
-      cmd: 'os --cpus',
-      callback: () => null,
+      cmd: '--cpus',
+      callback: () => getCPUs(),
     },
     getHomeDir: {
-      cmd: 'os --homedir',
-      callback: () => null,
+      cmd: '--homedir',
+      callback: () => console.log('Home directory is: ', os.homedir()),
     },
     getCurrentUser: {
-      cmd: 'os --username',
-      callback: () => null,
+      cmd: '--username',
+      callback: () => console.log('Current system name is: ', os.userInfo().username),
     },
     getCPUArchitecture: {
-      cmd: 'os --architecture',
-      callback: () => null,
+      cmd: '--architecture',
+      callback: () => console.log('CPU architecture is: ', os.arch()),
     },
   },
   hash: {
