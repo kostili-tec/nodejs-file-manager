@@ -8,6 +8,7 @@ import { getSystemPath } from './utils/systemPath.js';
 import { changePath } from './navigation/changePath.js';
 import { mainSystem } from './system/mainSystem.js';
 import { findObjectByCmd } from './data/finder.js';
+import { splitStringWithQuotes } from './utils/checkCommand.js';
 
 let currentPath = getSystemPath();
 process.chdir(currentPath);
@@ -19,7 +20,7 @@ rl.setPrompt(`You are currently in ${currentPath}>\n`);
 rl.prompt();
 
 const processCommand = async (command) => {
-  const commandArray = command.split(' ');
+  const commandArray = splitStringWithQuotes(command);
   const [operation, firstArg, secondArg] = commandArray;
 
   // console.log('commandArray ', commandArray);
