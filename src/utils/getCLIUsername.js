@@ -1,4 +1,4 @@
-export const getsUsername = () => {
+export const getCLIUserName = () => {
   const args = process.argv.slice(2);
 
   const parsedArgs = {};
