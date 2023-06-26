@@ -20,11 +20,14 @@ export const readFile = async (filePath) => {
 };
 
 const openReadFileHandle = async (path) => {
-  const fileHandle = await open(path);
-
-  if (fileHandle) {
+  try {
+    const fileHandle = await open(path);
     const stream = fileHandle.createReadStream({ encoding: 'utf-8' });
-    stream.on('data', (chunk) => console.log(chunk));
+    for await (const chunk of stream) {
+      console.log(chunk);
+    }
     stream.on('error', (error) => console.log('Error of reading file: ', error));
+  } catch (error) {
+    console.error('Operation failed ', error);
   }
 };
