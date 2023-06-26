@@ -4,9 +4,7 @@ import path from 'path';
 export const renameFile = async (pathToFile, name) => {
   if (pathToFile && name) {
     const resolvedPath = path.resolve(process.cwd(), pathToFile);
-    console.log('resolvedPath', resolvedPath);
     const newName = path.resolve(path.dirname(resolvedPath), name);
-    console.log('newName', newName);
 
     try {
       const checkFile = await stat(resolvedPath);

@@ -3,7 +3,7 @@ import path from 'path';
 
 export const readFile = async (filePath) => {
   if (!filePath) {
-    console.log('You must specify the path');
+    console.log('Invalid input. You must specify the path');
   } else {
     const resolvedPath = path.resolve(process.cwd(), filePath);
     try {
@@ -11,10 +11,10 @@ export const readFile = async (filePath) => {
       if (pathInfo.isFile()) {
         await openReadFileHandle(resolvedPath);
       } else {
-        console.log('This is not a file');
+        console.log('Invalid input. This is not a file');
       }
     } catch {
-      console.log('The file does not exist or the path is incorrect');
+      console.log('Invalid input. The file does not exist or the path is incorrect');
     }
   }
 };

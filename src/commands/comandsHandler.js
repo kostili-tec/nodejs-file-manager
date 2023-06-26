@@ -16,9 +16,6 @@ export const processCommand = async (command) => {
   const currentPath = getPath();
 
   switch (operation) {
-    case 'hello':
-      console.log('Hello, World!');
-      break;
     case '.exit':
       console.log(`\nThank you for using File Manager, ${username}, goodbye!\n`);
       readlineInteface.close();

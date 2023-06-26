@@ -2,7 +2,6 @@ import { stat } from 'fs/promises';
 import path from 'path';
 
 export const changeDir = async (newPath) => {
-  console.log('run change');
   if (newPath) {
     const currentPath = process.cwd();
     const resolvePath = path.resolve(currentPath, newPath);
@@ -11,7 +10,7 @@ export const changeDir = async (newPath) => {
       process.chdir(resolvePath);
     }
   } else {
-    console.log('incorrect way');
+    console.log('Invalid input. Incorrect path');
   }
 };
 
@@ -19,6 +18,6 @@ const checkDir = async (dirPath) => {
   try {
     return await stat(dirPath);
   } catch {
-    console.log('incorrect way');
+    console.log('Invalid input. Incorrect path');
   }
 };

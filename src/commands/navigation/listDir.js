@@ -17,6 +17,6 @@ export const listDir = async () => {
     });
     console.table(sortedArrToTable);
   } catch (error) {
-    console.log(error);
+    console.log('Operation failed. ', error);
   }
 };
