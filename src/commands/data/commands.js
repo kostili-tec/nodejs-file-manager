@@ -95,5 +95,3 @@ const commands = {
 };
 
 export const freezingCommands = Object.freeze(commands);
-
-// export default freezeCommands;

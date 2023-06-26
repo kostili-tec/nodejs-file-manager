@@ -1,8 +1,7 @@
 import { splitStringWithQuotes } from '../utils/checkCommand.js';
-import { freezingCommands as commands } from '../data/commands.js';
-import { mainSystem } from '../system/mainSystem.js';
-import { changePath } from '../navigation/changePath.js';
-// import { rl as readlineInteface, username, currentPath } from '../app/app.js';
+import { freezingCommands as commands } from './data/commands.js';
+import { mainSystem } from './system/mainSystem.js';
+import { changePath } from './navigation/changePath.js';
 import { getReadLineInterface } from '../store/readLineInterface/getReadLineInterface.js';
 import { getUserName } from '../store/userName/getUserName.js';
 import { getPath } from '../store/path/getPath.js';
