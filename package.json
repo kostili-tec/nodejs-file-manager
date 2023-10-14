@@ -1,0 +1,33 @@
+{
+  "name": "nodejs-file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint ./src --ext js",
+    "lint:fix": "eslint ./src --ext js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kostili-tec/nodejs-file-manager.git"
+  },
+  "keywords": [
+    "nodejs",
+    "file",
+    "manager"
+  ],
+  "author": "kostili-tec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kostili-tec/nodejs-file-manager/issues"
+  },
+  "homepage": "https://github.com/kostili-tec/nodejs-file-manager#readme",
+  "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8"
+  }
+}
